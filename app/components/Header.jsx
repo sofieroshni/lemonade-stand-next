@@ -7,8 +7,8 @@ export default function Header() {
       <nav style={styles.nav}>
         <Link href="/" style={styles.link}>Home</Link>
         <Link href="/pages/shop" style={styles.link}>Shop</Link>
-        <Link href="pages/cart" style={styles.link}>Kurv</Link>
-            <Link href="pages/checkout" style={styles.link}>Chckout</Link>
+        <Link href="/pages/cart" style={styles.link}>Kurv</Link>
+            <Link href="/pages/checkout" style={styles.link}>Chckout</Link>
       </nav>
     </header>
   );
