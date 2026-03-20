@@ -1,4 +1,5 @@
-export default function Home() {
+
+      export default function Home() {
   return (
     <div style={styles.container}>
       <h1>Welcome to Lemonade Shop</h1>
@@ -8,6 +9,7 @@ export default function Home() {
       <a href="/shop" style={styles.button}>
         Shop nu →
       </a>
+
     </div>
   );
 }

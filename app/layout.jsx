@@ -17,6 +17,7 @@
 
 import Header from './components/Header'
 import { Providers } from './providers'
+import './globals.css'
 
 export default function RootLayout({ children }) {
   return (
