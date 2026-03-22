@@ -3,34 +3,32 @@ import { createSlice } from '@reduxjs/toolkit'
 const lemonadeSlice = createSlice({
     name: 'lemonade',
     initialState: {
-        // Dine sædvanlige tal
+
         buyPrice: 10,
         sellPrice: 15,
         lemonades: 120,
         sold: 0,
         cash: 30,
-        cost: 0,
-        revenue: 0,
+        cost: 10,
+        revenue: 0,   //hvor mang 
 
-        // NYT - API data
-        cocktails: [],    // Listen af drinks fra API
-        loading: false,    // Er vi ved at hente data?
-        error: null,       // Er der en fejl?
+        cocktails: [],    
+        loading: false,    
+        error: null,       
     },
     reducers: {
-        // Dine gamle reducers
         buyLemon(state){
             if(state.cash < state.buyPrice) return
             state.lemonades += 1
-            state.cash -= state.buyPrice
-            state.cost += state.buyPrice
+            state.cash -= state.buyPrice //min cash går ned med den buyprice
+            state.cost += state.buyPrice //min cost går op med buyPrice (og cost er samlet sum af alle penge pbrugt på køb)
         },
         sellLemonade(state){
             if (state.lemonades <= 0) return
-            state.lemonades -= 1
-            state.sold += 1
-            state.cash += state.sellPrice
-            state.revenue += state.sellPrice
+            state.lemonades -= 1 //der en lemonade/citron som ryger
+            state.sold += 1 
+            state.cash += state.sellPrice //cash går op med den salgspris 
+            state.revenue += state.sellPrice //,om revanue går på med sellPrice
         },
         resetStand(state){
             state.lemonades = 0
@@ -40,15 +38,14 @@ const lemonadeSlice = createSlice({
             state.revenue = 0
         },
 
-        // NYT - For API data
         setLoading(state, action) {
-            state.loading = action.payload  // true eller false
+            state.loading = action.payload 
         },
         setCocktails(state, action) {
-            state.cocktails = action.payload  // Listen af drinks
+            state.cocktails = action.payload  
         },
         setError(state, action) {
-            state.error = action.payload  // Fejlbesked
+            state.error = action.payload  
         },
     }
 });

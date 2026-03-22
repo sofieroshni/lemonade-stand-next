@@ -1,12 +1,12 @@
 'use client'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { buyLemon, sellLemonade, setLoading, setCocktails, setError } from '../../redux/LemonadeSlice'
+import { setLoading, setCocktails, setError } from '../../redux/LemonadeSlice'
 import { useState, useEffect } from 'react'
 import { addTooCart, removeItem } from '../../redux/cartSlice'
+// import {Buttons} from '/../components/Buttons'
 // import styles from '../../globals.css'
 export default function Shop() {
-  // HENT DATA FRA REDUX (som at se i LEGO-kassen)
   const dispatch = useDispatch()
   const cash = useSelector(state => state.lemonade.cash)
   const cocktails = useSelector(state => state.lemonade.cocktails)
@@ -42,25 +42,16 @@ export default function Shop() {
    < div className='wrapper'>
     <div className='headershop'>
       <h1>Shop</h1>
-      
-      <div>
+       {/* <Buttons/> */}
+      {/* <div>
         <label>Søg</label>
         <input 
           type="text"
           value={name} 
           onChange={(e) => setName(e.target.value)}
         />
-      </div>
+      </div> */}
 
-      {/* Dine LEGO-spil */}
-      <p>Cash: ${cash}</p>
-      <div className='buttonsdiv'>
-      <button onClick={() => dispatch(buyLemon())}>
-        Buy Lemon (-$10)
-      </button>
-      <button onClick={() => dispatch(sellLemonade())}>
-        Sell Lemonade (+$15)
-      </button>
 </div>
       
       {/* Cocktails fra mit api */}
@@ -97,11 +88,11 @@ Tilføj til cart              </button>
               <p>Quantity: {item.quantity}</p>
               <button onClick={() => dispatch(removeItem(item.idDrink))}>
                 Remove
-              </button>
+              </button>       
             </div>
           ))}
         </div>
       )}
-    </div></div>
+    </div>
   )
 }
